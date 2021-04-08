@@ -8,10 +8,11 @@ import PeoplePage from '../people-page/people-page';
 import ItemList from '../item-list';
 import ItemDetails ,{ Record } from '../item-details';
 import SwapiService from "../../services/swapiService"
-
+import {SwapiServiceProovider} from "../swapi-service-context"
 import './app.css';
 import Row from '../row-item-list';
 import { PersonDetails, PersonList, PlanetDetails, PlanetList, StarshipDetails, StarshipList } from '../sw-components';
+import ErrorBoundary from '../error-boundary';
 export default class App extends Component {
 
   state = {
@@ -73,38 +74,37 @@ export default class App extends Component {
     )
 
     return (
-      <div className="stardb-app">
-        <Header />
-       
-        {/* <Row left = {personDetails} right = {starshipDetails} /> */}
-       
-     { planet }
+      <ErrorBoundary >
+        {/* Використовуєм SwapiServiceProovider для того щоб наші значення були доступні по всій App  */}
+        <SwapiServiceProovider value = {this.swapiService}>
+          <div className="stardb-app">
+            <Header />
+          
+            {/* <Row left = {personDetails} right = {starshipDetails} /> */}
+          
+        { planet }
 
-        <button
-          className="toggle-planet btn btn-warning btn-lg"
-          onClick={this.toggleRandomPlanet}>
-          Toggle Random Planet
-        </button>
+            <button
+              className="toggle-planet btn btn-warning btn-lg"
+              onClick={this.toggleRandomPlanet}>
+              Toggle Random Planet
+            </button>
 
-        {/* < PeoplePage />  */}
+            {/* < PeoplePage />  */}
 
-        <PersonDetails itemId = {4} />
-        <PlanetDetails itemId = {8} />
-        <StarshipDetails itemId = {9} />
+            <PersonDetails itemId = {4} />
+            <PlanetDetails itemId = {8} />
+            <StarshipDetails itemId = {9} />
 
-         <PersonList>
-            { ({name}) => <span>{name}</span> }
-         </PersonList>
+            <PersonList />
 
-         <StarshipList>
-            { ({name}) => <span>{name}</span> }
-         </StarshipList>
+            <StarshipList />
 
-         <PlanetList>
-            { ({name}) => <span>{name}</span> }
-         </PlanetList>
+            <PlanetList />
 
-      </div>
+          </div>
+        </SwapiServiceProovider>
+      </ErrorBoundary>
     );
   }
 }

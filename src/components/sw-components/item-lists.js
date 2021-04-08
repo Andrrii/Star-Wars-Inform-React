@@ -11,11 +11,29 @@ const {
     getAllStarships
 } = swapiService
 
-const PersonList = withData(ItemList,getAllPeople)
+/* Робиться для того щоб в App замінити    <PersonList>
+            { ({name}) => <span>{name}</span> }
+            </PersonList>  */
+const withChildFunction = (Wrapper,fn) => 
+    {
+        return (props) => {
+            return ( 
+                <Wrapper {...props} >
+                    {fn}
+                </Wrapper>
+                )
+        }
+    } 
 
-const PlanetList = withData(ItemList,getAllPlanets)
+const ListWithChildren = withChildFunction(ItemList,
+    ({name}) => <span>{name}</span>
+    )
 
-const StarshipList = withData(ItemList,getAllStarships)
+const PersonList = withData(ListWithChildren,getAllPeople)
+
+const PlanetList = withData(ListWithChildren,getAllPlanets)
+
+const StarshipList = withData(ListWithChildren,getAllStarships)
 
 export {
     
