@@ -19,7 +19,7 @@ export default class App extends Component {
   state = {
     showRandomPlanet: true,
     hasError : false,
-    swapiService : new DummySwapiService()
+    swapiService : new SwapiService()
   };
 
   onServiceChange = () => {
