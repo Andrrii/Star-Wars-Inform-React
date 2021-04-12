@@ -16,6 +16,7 @@ const ItemList = (props) => {
           onClick={() => onItemSelected(id)}>
         {label}
       </li>
+      
     );
   });
 
@@ -25,5 +26,9 @@ const ItemList = (props) => {
     </ul>
   );
 };
+
+ItemList.defaultProps = {
+    onItemSelected : () => {}
+}
 
 export default ItemList

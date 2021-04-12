@@ -53,24 +53,24 @@ export default class DummySwapiService {
       return this._people;
     };
   
-    getPerson = async () => {
-      return this._people[0];
+    getPerson = async (id) => {
+      return this._people[id-1];
     };
   
     getAllPlanets = async () => {
       return this._planets;
     };
   
-    getPlanet = async () => {
-      return this._planets[0]
+    getPlanet = async (id) => {
+      return this._planets[id-1]
     };
   
     getAllStarships = async () => {
       return this._starships;
     };
   
-    getStarship = async () => {
-      return this._starships[0];
+    getStarship = async (id) => {
+      return this._starships[id-1];
     };
   
     getPersonImage = () => {

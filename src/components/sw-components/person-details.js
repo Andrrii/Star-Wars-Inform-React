@@ -3,6 +3,7 @@ import ItemDetails , {Record} from "../item-details"
 import {withSwapiService} from "../hoc-helpers"
 
 const PersonDetails = ({itemId,getData,getImageUrl}) => {
+    
     return (
             <ItemDetails itemId = {itemId}
                 getData = {getData}
@@ -25,7 +26,7 @@ const mapMethodsToProps = (swapiService) => {
 
 // withSwapiService додає SwapiService в компонент
 
-export default withSwapiService(PersonDetails,mapMethodsToProps)
+export default withSwapiService(mapMethodsToProps)(PersonDetails)
             
 
 
