@@ -14,6 +14,8 @@ import Row from '../row-item-list';
 import {PeoplePage,PlanetPage,StarshipPage} from "../pages"
 import { PersonDetails, PersonList, PlanetDetails, PlanetList, StarshipDetails, StarshipList } from '../sw-components';
 import ErrorBoundary from '../error-boundary';
+
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 export default class App extends Component {
 
   state = {
@@ -86,24 +88,33 @@ export default class App extends Component {
       <ErrorBoundary >
         {/* Використовуєм SwapiServiceProovider для того щоб наші значення були доступні по всій App  */}
         <SwapiServiceProovider value = {this.state.swapiService}>
-          <div className="stardb-app">
-            <Header onServiceChange = {this.onServiceChange} />
-          
-            {/* <Row left = {personDetails} right = {starshipDetails} /> */}
-          
-        { planet }
+          <Router>
+            <div className="stardb-app">
+              <Header onServiceChange = {this.onServiceChange} />
+            
+              {/* <Row left = {personDetails} right = {starshipDetails} /> */}
+            
+          { planet }
 
-            <button
-              className="toggle-planetbtn btn btn-outline-primary"
-              onClick={this.toggleRandomPlanet}>
-              Toggle Random Planet
-            </button>
+              <button
+                className="toggle-planetbtn btn btn-outline-primary"
+                onClick={this.toggleRandomPlanet}>
+                Toggle Random Planet
+              </button>
 
-            <PeoplePage />
-            <PlanetPage />
-            <StarshipPage />
+              <Route path ='/' render = { () => <h2>Welcome to Star-Wars-Inform</h2>} 
+                exact   /> {/* Exact - викор для того , щоб цей компонент відображався тільки на цій сторінці  */}
+              <Route path = "/people/:id?" component = {PeoplePage} />
+              <Route path = "/planets" component = {PlanetPage} />
+              <Route path = "/starships" exact component = {StarshipPage} />
+              {/* Для динамічних силок */}
+              <Route path = '/starships/:id' render = {({match,location,history}) => {
+                  const {id} = match.params
+                  return <StarshipDetails itemId = {id}/>
+                  }} />
 
-          </div>
+            </div>
+          </Router>
         </SwapiServiceProovider>
       </ErrorBoundary>
     );

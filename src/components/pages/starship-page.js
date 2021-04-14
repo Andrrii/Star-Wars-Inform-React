@@ -1,21 +1,16 @@
-import React, { Component } from "react"
-import Row from "../row-item-list"
-import { StarshipDetails, StarshipList } from "../sw-components"
-
-export default class StarshipPage extends Component {
-    state = {
-        selectedItem : null
-    }
-
-    onItemSelected = (selectedItem) => {
-        this.setState({ selectedItem })
-    }
-
-    render() {
-        const { selectedItem } = this.state
+import React from "react"
+import { StarshipList } from "../sw-components"
+import { withRouter } from 'react-router-dom'
+// Цк все робиться для того щоб коли користувач клікнув по списку то він попаде на нову сторінку
+ 
+const StarshipPage = ({history}) => {
         return (
-            <Row left = { <StarshipList onItemSelected = {this.onItemSelected} />}
-                 right = { <StarshipDetails itemId = {selectedItem} />} />
+           <StarshipList onItemSelected = {(itemId) => {
+               const newPath = `/starships/${itemId}`
+               history.push(newPath)
+           }} />
+                 
         )
     }
-}
+
+export default withRouter(StarshipPage)
