@@ -11,18 +11,25 @@ import DummySwapiService from "../../services/dummy-swapi-service"
 import {SwapiServiceProovider} from "../swapi-service-context"
 import './app.css';
 import Row from '../row-item-list';
-import {PeoplePage,PlanetPage,StarshipPage} from "../pages"
+import {PeoplePage,PlanetPage,StarshipPage,LoginPage,SecretPage} from "../pages"
 import { PersonDetails, PersonList, PlanetDetails, PlanetList, StarshipDetails, StarshipList } from '../sw-components';
 import ErrorBoundary from '../error-boundary';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Route,Switch, Redirect} from 'react-router-dom'
 export default class App extends Component {
 
   state = {
     showRandomPlanet: true,
     hasError : false,
-    swapiService : new SwapiService()
+    swapiService : new SwapiService(),
+    isLoggedIn:false
   };
+
+  onLogin = () => {
+    this.setState({
+      isLoggedIn:true
+    })
+  }
 
   onServiceChange = () => {
     this.setState(({swapiService}) => {
@@ -49,6 +56,8 @@ export default class App extends Component {
   }
 
   render() {
+
+    const {isLoggedIn} = this.state
 
     if(this.state.hasError){
           return <ErrorIndicator />
@@ -102,16 +111,30 @@ export default class App extends Component {
                 Toggle Random Planet
               </button>
 
-              <Route path ='/' render = { () => <h2>Welcome to Star-Wars-Inform</h2>} 
-                exact   /> {/* Exact - викор для того , щоб цей компонент відображався тільки на цій сторінці  */}
-              <Route path = "/people/:id?" component = {PeoplePage} />
-              <Route path = "/planets" component = {PlanetPage} />
-              <Route path = "/starships" exact component = {StarshipPage} />
-              {/* Для динамічних силок */}
-              <Route path = '/starships/:id' render = {({match,location,history}) => {
-                  const {id} = match.params
-                  return <StarshipDetails itemId = {id}/>
-                  }} />
+              <Switch>
+
+                {/* Switch обробляє неіснуючі адреси */}
+
+                <Route path ='/' render = { () => <h2>Welcome to Star-Wars-Inform</h2>} 
+                  exact   /> {/* Exact - викор для того , щоб цей компонент відображався тільки на цій сторінці  */}
+                <Route path = "/people/:id?" component = {PeoplePage} />
+                <Route path = "/planets" component = {PlanetPage} />
+                <Route path = "/starships" exact component = {StarshipPage} />
+                {/* Для динамічних силок */}
+                <Route path = '/starships/:id' render = {({match,location,history}) => {
+                    const {id} = match.params
+                    return <StarshipDetails itemId = {id}/>
+                    }} />
+                
+                <Route path = '/login' render = {() => (<LoginPage 
+                isLoggedIn = {isLoggedIn} onLogin ={this.onLogin} />)} />
+                <Route path = '/secret' render = {() => (<SecretPage 
+                isLoggedIn = {isLoggedIn} />)} />
+
+                {/* Якщо не буде якогось шляху то виконається Redirect */}
+
+                <Redirect to = "/" />
+              </Switch>
 
             </div>
           </Router>

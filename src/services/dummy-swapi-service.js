@@ -1,4 +1,4 @@
-export default class DummySwapiService {
+  export default class DummySwapiService {
 
     _people = [
       {
