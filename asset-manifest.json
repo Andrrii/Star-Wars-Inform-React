@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Andrrii/Star-Wars-Inform-React/static/css/main.6d64463c.chunk.css",
-    "main.js": "/Andrrii/Star-Wars-Inform-React/static/js/main.c92d9cb3.chunk.js",
-    "main.js.map": "/Andrrii/Star-Wars-Inform-React/static/js/main.c92d9cb3.chunk.js.map",
-    "runtime-main.js": "/Andrrii/Star-Wars-Inform-React/static/js/runtime-main.ee6a51dd.js",
-    "runtime-main.js.map": "/Andrrii/Star-Wars-Inform-React/static/js/runtime-main.ee6a51dd.js.map",
-    "static/js/2.167b1a80.chunk.js": "/Andrrii/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js",
-    "static/js/2.167b1a80.chunk.js.map": "/Andrrii/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js.map",
-    "index.html": "/Andrrii/Star-Wars-Inform-React/index.html",
-    "static/css/main.6d64463c.chunk.css.map": "/Andrrii/Star-Wars-Inform-React/static/css/main.6d64463c.chunk.css.map",
-    "static/js/2.167b1a80.chunk.js.LICENSE.txt": "/Andrrii/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js.LICENSE.txt"
+    "main.css": "/Star-Wars-Inform-React/static/css/main.6d64463c.chunk.css",
+    "main.js": "/Star-Wars-Inform-React/static/js/main.c92d9cb3.chunk.js",
+    "main.js.map": "/Star-Wars-Inform-React/static/js/main.c92d9cb3.chunk.js.map",
+    "runtime-main.js": "/Star-Wars-Inform-React/static/js/runtime-main.07d1fa17.js",
+    "runtime-main.js.map": "/Star-Wars-Inform-React/static/js/runtime-main.07d1fa17.js.map",
+    "static/js/2.167b1a80.chunk.js": "/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js",
+    "static/js/2.167b1a80.chunk.js.map": "/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js.map",
+    "index.html": "/Star-Wars-Inform-React/index.html",
+    "static/css/main.6d64463c.chunk.css.map": "/Star-Wars-Inform-React/static/css/main.6d64463c.chunk.css.map",
+    "static/js/2.167b1a80.chunk.js.LICENSE.txt": "/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ee6a51dd.js",
+    "static/js/runtime-main.07d1fa17.js",
     "static/js/2.167b1a80.chunk.js",
     "static/css/main.6d64463c.chunk.css",
     "static/js/main.c92d9cb3.chunk.js"
