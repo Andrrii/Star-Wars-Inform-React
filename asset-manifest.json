@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Andrrii/Star-Wars-Inform-React/static/css/main.6d64463c.chunk.css",
+    "main.js": "/Andrrii/Star-Wars-Inform-React/static/js/main.c92d9cb3.chunk.js",
+    "main.js.map": "/Andrrii/Star-Wars-Inform-React/static/js/main.c92d9cb3.chunk.js.map",
+    "runtime-main.js": "/Andrrii/Star-Wars-Inform-React/static/js/runtime-main.ee6a51dd.js",
+    "runtime-main.js.map": "/Andrrii/Star-Wars-Inform-React/static/js/runtime-main.ee6a51dd.js.map",
+    "static/js/2.167b1a80.chunk.js": "/Andrrii/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js",
+    "static/js/2.167b1a80.chunk.js.map": "/Andrrii/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js.map",
+    "index.html": "/Andrrii/Star-Wars-Inform-React/index.html",
+    "static/css/main.6d64463c.chunk.css.map": "/Andrrii/Star-Wars-Inform-React/static/css/main.6d64463c.chunk.css.map",
+    "static/js/2.167b1a80.chunk.js.LICENSE.txt": "/Andrrii/Star-Wars-Inform-React/static/js/2.167b1a80.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee6a51dd.js",
+    "static/js/2.167b1a80.chunk.js",
+    "static/css/main.6d64463c.chunk.css",
+    "static/js/main.c92d9cb3.chunk.js"
+  ]
+}
